@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Remember.Info"
+	Title="Info">
+	<ContentPage.Content>
+		<StackLayout
+			Padding="20">
+			<StackLayout
+				Orientation="Horizontal">
+				<Label
+					Text="Item: "
+					HorizontalOptions="End" />
+				<Entry
+					x:Name="Item"
+					Placeholder="e.g., Shirt Size"
+					HorizontalOptions="Start"
+					WidthRequest="250" />
+			</StackLayout>
+			<StackLayout
+				Orientation="Horizontal">
+				<Label
+					Text="Info: "
+					HorizontalOptions="End" />
+				<Entry
+					x:Name="Details"
+					Placeholder="e.g., 32 long"
+					HorizontalOptions="Start"
+					WidthRequest="250" />
+			</StackLayout>
+			<StackLayout
+				Orientation="Horizontal">
+				<Button
+					Text="Save"
+					BackgroundColor="Green"
+					TextColor="Yellow"
+					WidthRequest="100"
+					Clicked="OnSaveClicked" />
+				<Button
+					Text="Cancel"
+					BackgroundColor="Red"
+					TextColor="Yellow"
+					WidthRequest="100"
+					Clicked="OnCancelClicked" />
+			</StackLayout>
+			<ListView
+				x:Name="InfoList">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout
+									Padding="5"
+									Spacing="1">
+									<Label
+										Text="{Binding Name}"
+										FontSize="12"
+										TextColor="Red" />
+									<Label
+										Text="{Binding InfoValue}"
+										FontSize="10" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
