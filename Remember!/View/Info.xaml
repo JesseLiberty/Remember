@@ -7,43 +7,72 @@
 	<ContentPage.Content>
 		<StackLayout
 			Padding="20">
-			<StackLayout
-				Orientation="Horizontal">
+			<Grid
+				Padding="25">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="1*" />
+					<ColumnDefinition
+						Width="1*" />
+				</Grid.ColumnDefinitions>
 				<Label
-					Text="Item: "
+					Text="Product Info!"
+					FontSize="25"
+					Grid.Row="0"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					TextColor="Red" />
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					Text="Product: "
 					HorizontalOptions="End" />
 				<Entry
+					Grid.Row="1"
+					Grid.Column="1"
 					x:Name="Item"
 					Placeholder="e.g., Shirt Size"
 					HorizontalOptions="Start"
 					WidthRequest="250" />
-			</StackLayout>
-			<StackLayout
-				Orientation="Horizontal">
 				<Label
-					Text="Info: "
+					Grid.Row="2"
+					Grid.Column="0"
+					Text="Details: "
 					HorizontalOptions="End" />
 				<Entry
+					Grid.Row="2"
+					Grid.Column="1"
 					x:Name="Details"
 					Placeholder="e.g., 32 long"
 					HorizontalOptions="Start"
 					WidthRequest="250" />
-			</StackLayout>
-			<StackLayout
-				Orientation="Horizontal">
 				<Button
+					Grid.Row="4"
+					Grid.Column="0"
 					Text="Save"
 					BackgroundColor="Green"
 					TextColor="Yellow"
 					WidthRequest="100"
 					Clicked="OnSaveClicked" />
 				<Button
+					Grid.Row="4"
+					Grid.Column="1"
 					Text="Cancel"
 					BackgroundColor="Red"
 					TextColor="Yellow"
 					WidthRequest="100"
 					Clicked="OnCancelClicked" />
-			</StackLayout>
+			</Grid>
 			<ListView
 				x:Name="InfoList">
 				<ListView.ItemTemplate>

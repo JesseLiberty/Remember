@@ -5,76 +5,125 @@
 	x:Class="Remember.Occasion"
 	Title="Occasion">
 	<ContentPage.Content>
-		<Grid
-			Padding="25">
-			<Grid.RowDefinitions>
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition
-					Width="1*" />
-				<ColumnDefinition
-					Width="1*" />
-			</Grid.ColumnDefinitions>
-			<Label
-				Text="Remember!"
-				FontSize="25"
-				Grid.Row="0"
-				Grid.Column="0"
-				Grid.ColumnSpan="2"
-				TextColor="Red" />
-			<Label
-				Text="Occasion: "
-				Grid.Row="1"
-				Grid.Column="0"
-				HorizontalOptions="End" />
-			<Entry
-				WidthRequest="200"
-				Placeholder="Birthday, etc."
-				HorizontalOptions="Start"
-				Grid.Row="1"
-				Grid.Column="1" />
-			<Label
-				Text="Date: "
-				HorizontalOptions="End"
-				Grid.Row="2"
-				Grid.Column="0" />
-			<DatePicker
-				HorizontalOptions="Start"
-				Grid.Row="2"
-				Grid.Column="1" />
-			<Label
-				Text="Notification: "
-				HorizontalOptions="End"
-				Grid.Row="3"
-				Grid.Column="0" />
-			<StackLayout
-				Orientation="Horizontal"
-				Grid.Row="3"
-				Grid.Column="1">
-				<Entry
-					Placeholder="7"
-					WidthRequest="30"
-					HorizontalOptions="Start" />
+		<StackLayout
+			Padding="20">
+			<Grid
+				Padding="25">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="1*" />
+					<ColumnDefinition
+						Width="1*" />
+				</Grid.ColumnDefinitions>
 				<Label
-					Text="Days"
-					HorizontalOptions="Start" />
-			</StackLayout>
-			<Label
-				Text="Yearly?"
-				HorizontalOptions="End"
-				Grid.Row="4"
-				Grid.Column="0" />
-			<Switch
-				Grid.Row="4"
-				Grid.Column="1" />
-		</Grid>
+					Text="Forget Me Not!"
+					FontSize="25"
+					Grid.Row="0"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					TextColor="Red" />
+				<Label
+					Text="Occasion: "
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalOptions="End" />
+				<Entry
+					x:Name="OccasionEntry"
+					WidthRequest="200"
+					Placeholder="Birthday, etc."
+					HorizontalOptions="Start"
+					Grid.Row="1"
+					Grid.Column="1" />
+				<Label
+					Text="Date: "
+					HorizontalOptions="End"
+					Grid.Row="2"
+					Grid.Column="0" />
+				<DatePicker
+					x:Name="OccasionDate"
+					HorizontalOptions="Start"
+					Grid.Row="2"
+					Grid.Column="1" />
+				<Label
+					Text="Notification: "
+					HorizontalOptions="End"
+					Grid.Row="3"
+					Grid.Column="0" />
+				<StackLayout
+					Orientation="Horizontal"
+					Grid.Row="3"
+					Grid.Column="1">
+					<Entry
+						x:Name="Notification"
+						Placeholder="7"
+						WidthRequest="30"
+						HorizontalOptions="Start" />
+					<Label
+						Text="Days"
+						HorizontalOptions="Start" />
+				</StackLayout>
+				<Label
+					Text="Yearly?"
+					HorizontalOptions="End"
+					Grid.Row="4"
+					Grid.Column="0" />
+				<Switch
+					x:Name="Yearly"
+					Grid.Row="4"
+					Grid.Column="1" />
+				<Button
+					Grid.Row="6"
+					Grid.Column="0"
+					Text="Save"
+					BackgroundColor="Green"
+					TextColor="Yellow"
+					WidthRequest="100"
+					Clicked="OnSaveClicked" />
+				<Button
+					Grid.Row="6"
+					Grid.Column="1"
+					Text="Cancel"
+					BackgroundColor="Red"
+					TextColor="Yellow"
+					WidthRequest="100"
+					Clicked="OnCancelClicked" />
+			</Grid>
+			<ListView
+				x:Name="OccasionList">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout
+									Padding="5"
+									Spacing="1">
+									<Label
+										Text="{Binding Name}"
+										FontSize="12"
+										TextColor="Red" />
+									<Label
+										Text="{Binding Date, StringFormat='{0:M}'}"
+										FontSize="10" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
